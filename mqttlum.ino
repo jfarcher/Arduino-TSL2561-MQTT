@@ -26,7 +26,7 @@ void getLum()
   char* lum;
   char message_buffer[100];
   lum = dtostrf(x,4,2,message_buffer);
-  client.publish("lum", lum);
+  client.publish(MQTT_TOPIC, lum);
   delay(5000);
 
 }
