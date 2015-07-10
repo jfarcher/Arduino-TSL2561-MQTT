@@ -18,7 +18,7 @@ PubSubClient client(MQTT_SERVER, 1883, 0, ethClient);
 void getLum()
 {
 
-  client.publish("LS1","Sensor UP");
+
   tsl.setGain(TSL2561_GAIN_16X);      // set 16x gain (for dim situations)
   tsl.setTiming(TSL2561_INTEGRATIONTIME_13MS);  // shortest integration time (bright light) 
   uint16_t x = tsl.getLuminosity(TSL2561_FULLSPECTRUM);
@@ -34,7 +34,9 @@ void setup()
 {
   Ethernet.begin(mac);
   client.connect("arduinoClient");
-  tsl.begin();
+ if (tsl.begin()){
+     client.publish("LS1","Sensor UP");
+ }
 
 
 }
