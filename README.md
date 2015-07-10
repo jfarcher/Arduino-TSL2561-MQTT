@@ -10,8 +10,11 @@ Modify config.h to reflect your MQTT server and your topic you wish to pubish to
 Connect the sensor to your arduino:
 
 VCC to 3v+
+
 GND to GND
+
 SCL to Analog 5
+
 SDA to Analog 4
 
 
